@@ -9,8 +9,8 @@ var mouse_sensitivity = 0.3
 
 #walk variables
 var gravity = -9.8 *3
-const MAX_SPEED = 20
-const MAX_RUNNING_SPEED = 30
+const MAX_SPEED = 50
+const MAX_RUNNING_SPEED = 80
 const ACCEL = 2
 const DEACCEL = 6
 
