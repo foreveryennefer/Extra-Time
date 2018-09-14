@@ -1,4 +1,6 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Scripts/Player.gd" type="Script" id=1]
 
 [sub_resource type="SpatialMaterial" id=1]
 
@@ -68,6 +70,7 @@ height = 1.0
 
 [node name="Player" type="KinematicBody"]
 
+transform = Transform( 1, 0, 0, 0, -4.37114e-008, -1, 0, 1, -4.37114e-008, 0, 0, 0 )
 input_ray_pickable = true
 input_capture_on_drag = false
 collision_layer = 1
@@ -79,6 +82,8 @@ axis_lock_angular_x = false
 axis_lock_angular_y = false
 axis_lock_angular_z = false
 collision/safe_margin = 0.001
+script = ExtResource( 1 )
+_sections_unfolded = [ "Transform" ]
 
 [node name="MeshInstance" type="MeshInstance" parent="." index="0"]
 
@@ -95,9 +100,30 @@ mesh = SubResource( 2 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="CollisionShape" type="CollisionShape" parent="." index="1"]
+[node name="Capsule" type="CollisionShape" parent="." index="1"]
 
 shape = SubResource( 3 )
 disabled = false
+
+[node name="Head" type="Spatial" parent="." index="2"]
+
+transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, -1.5 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Camera" type="Camera" parent="Head" index="0"]
+
+transform = Transform( 5.44867e-008, 0.422618, -0.906308, 1, -8.33274e-008, 2.12633e-008, -6.6534e-008, -0.906308, -0.422618, -1, 3.31029e-009, -0.333333 )
+keep_aspect = 1
+cull_mask = 1048575
+environment = null
+h_offset = 0.0
+v_offset = 0.0
+doppler_tracking = 0
+projection = 0
+current = false
+fov = 70.0
+size = 1.0
+near = 0.05
+far = 100.0
 
 
